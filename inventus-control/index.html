@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Cache-Control" content="no-store">
+  <title>Opening Inventus Control</title>
+</head>
+
+<body>
+  <main>
+    <h1>Opening Inventus Control</h1>
+    <p id="status">Redirecting securely…</p>
+  </main>
+
+  <script>
+    (() => {
+      const EXPECTED_ISSUER =
+        "https://inventus-dev.uk.auth0.com/";
+
+      /*
+       * Replace this placeholder with the exact SAML Protocol URL
+       * copied from the Auth0 application.
+       */
+      const AUTH0_SAML_PROTOCOL_URL =
+        "REPLACE_WITH_EXACT_AUTH0_SAML_PROTOCOL_URL";
+
+      const parameters = new URLSearchParams(window.location.search);
+      const issuer = parameters.get("iss");
+      const status = document.getElementById("status");
+
+      if (issuer !== EXPECTED_ISSUER) {
+        status.textContent =
+          "The authentication request could not be validated.";
+        return;
+      }
+
+      if (
+        AUTH0_SAML_PROTOCOL_URL ===
+        "REPLACE_WITH_EXACT_AUTH0_SAML_PROTOCOL_URL"
+      ) {
+        status.textContent =
+          "The authentication destination has not been configured.";
+        return;
+      }
+
+      window.location.replace(AUTH0_SAML_PROTOCOL_URL);
+    })();
+  </script>
+</body>
+</html>
