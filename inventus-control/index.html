@@ -14,39 +14,31 @@
     <p id="status">Redirecting securely…</p>
   </main>
 
-  <script>
-    (() => {
-      const EXPECTED_ISSUER =
-        "https://inventus-dev.uk.auth0.com/";
+<script>
+  (() => {
+    const EXPECTED_ISSUER =
+      "https://inventus-dev.uk.auth0.com/";
 
-      /*
-       * Replace this placeholder with the exact SAML Protocol URL
-       * copied from the Auth0 application.
-       */
-      const AUTH0_SAML_PROTOCOL_URL =
-        "https://inventus-dev.uk.auth0.com/samlp/ZqecQ2OORQaCD1O8EJA6NLLeHRqsJNdj";
+    const AUTH0_SAML_PROTOCOL_URL =
+      "https://inventus-dev.uk.auth0.com/samlp/ZqecQ2OORQaCD1O8EJA6NLLeHRqsJNdj";
 
-      const parameters = new URLSearchParams(window.location.search);
-      const issuer = parameters.get("iss");
-      const status = document.getElementById("status");
+    const parameters =
+      new URLSearchParams(window.location.search);
 
-      if (issuer !== EXPECTED_ISSUER) {
-        status.textContent =
-          "The authentication request could not be validated.";
-        return;
-      }
+    const issuer = parameters.get("iss");
+    const status = document.getElementById("status");
 
-      if (
-        AUTH0_SAML_PROTOCOL_URL ===
-        "https://inventus-dev.uk.auth0.com/samlp/ZqecQ2OORQaCD1O8EJA6NLLeHRqsJNdj"
-      ) {
-        status.textContent =
-          "The authentication destination has not been configured.";
-        return;
-      }
+    if (issuer !== EXPECTED_ISSUER) {
+      status.textContent =
+        "The authentication request could not be validated.";
+      return;
+    }
 
-      window.location.replace(AUTH0_SAML_PROTOCOL_URL);
-    })();
-  </script>
+    status.textContent =
+      "Redirecting securely to Inventus Control…";
+
+    window.location.replace(AUTH0_SAML_PROTOCOL_URL);
+  })();
+</script>
 </body>
 </html>
