@@ -24,7 +24,7 @@
        * copied from the Auth0 application.
        */
       const AUTH0_SAML_PROTOCOL_URL =
-        "REPLACE_WITH_EXACT_AUTH0_SAML_PROTOCOL_URL";
+        "https://inventus-dev.uk.auth0.com/samlp/ZqecQ2OORQaCD1O8EJA6NLLeHRqsJNdj";
 
       const parameters = new URLSearchParams(window.location.search);
       const issuer = parameters.get("iss");
@@ -38,7 +38,7 @@
 
       if (
         AUTH0_SAML_PROTOCOL_URL ===
-        "REPLACE_WITH_EXACT_AUTH0_SAML_PROTOCOL_URL"
+        "https://inventus-dev.uk.auth0.com/samlp/ZqecQ2OORQaCD1O8EJA6NLLeHRqsJNdj"
       ) {
         status.textContent =
           "The authentication destination has not been configured.";
