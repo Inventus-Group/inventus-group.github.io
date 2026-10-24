@@ -25,8 +25,8 @@
       const EXPECTED_ISSUER =
         "https://inventus-prod.uk.auth0.com/";
 
-      const AUTH0_SAML_PROTOCOL_URL =
-        "https://inventus-prod.uk.auth0.com/samlp/yWUltT2g8bNMyysngf9o57YL4A0qfXUN";
+      const INVENTUS_CONTROL_URL =
+        "https://inventus-10105645338.mdmconsole.com/webclient";
 
       const parameters = new URLSearchParams(window.location.search);
       const issuer = parameters.get("iss");
@@ -35,7 +35,7 @@
         return;
       }
 
-      window.location.replace(AUTH0_SAML_PROTOCOL_URL);
+      window.location.replace(INVENTUS_CONTROL_URL);
     })();
   </script>
 </body>
