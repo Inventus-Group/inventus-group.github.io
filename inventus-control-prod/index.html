@@ -1,1 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Cache-Control" content="no-store">
 
+  <title>Opening Inventus Control</title>
+
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      background: #70888F;
+    }
+  </style>
+</head>
+
+<body>
+  <script>
+    (() => {
+      const EXPECTED_ISSUER =
+        "https://inventus-prod.uk.auth0.com/";
+
+      const AUTH0_SAML_PROTOCOL_URL =
+        "https://inventus-prod.uk.auth0.com/samlp/yWUltT2g8bNMyysngf9o57YL4A0qfXUN";
+
+      const parameters = new URLSearchParams(window.location.search);
+      const issuer = parameters.get("iss");
+
+      if (issuer !== EXPECTED_ISSUER) {
+        return;
+      }
+
+      window.location.replace(AUTH0_SAML_PROTOCOL_URL);
+    })();
+  </script>
+</body>
+</html>
